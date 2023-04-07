@@ -32,20 +32,20 @@ instance.interceptors.response.use(result=>{
         // 401:表示Token 过期
         case 401:
             ElMessage({
-                message:error.response.data.message,
-                type:'error',
+                message: error.response.data.message,
+                type: 'error',
                 duration: 5 * 1000
             })
             store.logOut()
             location.reload()
-          break;
-          case 404:
+            break;
+        case 404:
             ElMessage.error('接口请求不存在')
             break;
         default:
             ElMessage.error(error.response.data.message)
-          break;
-      }
+            break;
+    }
 
     return Promise.reject(error)
 })
