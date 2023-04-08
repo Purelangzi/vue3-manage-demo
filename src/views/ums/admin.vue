@@ -24,7 +24,7 @@
         <span><el-icon>
             <Tickets />
           </el-icon>&nbsp;数据列表</span>
-        <el-button type="primary" size="small" @click="addDialog">添加</el-button>
+        <el-button type="primary" size="small" @click="dialogFormVisible = true;isEditUser = false">添加</el-button>
       </div>
     </el-card>
   </div>
@@ -33,8 +33,8 @@
       <el-table-column v-for="item in state.columns" :prop="item.prop" :label="item.label" :width="item.width"
         :key="item.prop" align="center">
         <template #default="{ row, $index }" v-if="item.isSlot">
-          <el-switch v-model="row.status" inline-prompt active-text="启用" inactive-text="未启用"
-            @change="userStatusChange(row.status, $index)">
+          <el-switch v-model="row.status" inline-prompt active-text="启用" inactive-text="未启用" :active-value="1" :inactive-value="0"
+            @change="userStatusChange($index)">
           </el-switch>
 
         </template>
@@ -42,6 +42,7 @@
       <el-table-column label="操作" align="center">
         <template #default="{row}">
           <el-button type="primary" link size="small" @click="divideRole(row.id)">分配角色</el-button>
+          <el-button type="primary" link size="small" @click="editUser(row)">编辑</el-button>
         </template>
         
       </el-table-column>
@@ -56,7 +57,7 @@
     </el-pagination>
 
   </div>
-  <el-dialog v-model="dialogFormVisible" title="添加用户" width="50%" :before-close="handleCloseDialogForm">
+  <el-dialog v-model="dialogFormVisible" :title="`${isEditUser?'修改':'添加'}用户`" width="50%" :before-close="handleCloseDialogForm">
     <el-form :model="state.addUserform" ref="ruleFormRef" :rules="userformRules">
       <el-form-item label="账号：" prop="username" :label-width="formLabelWidth">
         <el-input v-model="state.addUserform.username" placeholder="请输入账号" />
@@ -83,7 +84,7 @@
     <template #footer>
       <span class="dialog-footer">
         <el-button @click="cancelAddUser(ruleFormRef)">取消</el-button>
-        <el-button type="primary" @click="submitAddUser(ruleFormRef)">确定</el-button>
+        <el-button type="primary" @click="submitAddOrUpdateUser(ruleFormRef)">确定</el-button>
       </span>
     </template>
   </el-dialog>
@@ -111,7 +112,8 @@
 </template>
 <script setup lang="ts">
 import type { FormInstance, FormRules } from 'element-plus'
-import { UserList, UserStatusChange, isSearch, searchDisabled, AddUserform, dialogFormVisible, loading,dialogDivideVisible,DivdeRoleform} from './ts/admin-data'
+import { UserList, isSearch, searchDisabled, AddUserform, 
+  dialogFormVisible, loading,dialogDivideVisible,DivdeRoleform,isEditUser} from './ts/admin-data'
 import { formatDate } from '@/utils/date'
 const { proxy } = getCurrentInstance() as any
 const api = proxy.$api
@@ -151,7 +153,8 @@ const state = reactive({
   queryRole:{
     adminId:0,
     roleIds:[] as number[]|string
-  }
+  },
+  rowId:0,
 })
 const ruleFormRef = ref<FormInstance>()
 const userformRules = reactive<FormRules>({
@@ -174,9 +177,6 @@ const userformRules = reactive<FormRules>({
 const formLabelWidth = '110px'
 
 
-const addDialog = () => {
-  dialogFormVisible.value = true
-}
 onMounted(() => {
   getUserList()
   getRoleListAll()
@@ -192,7 +192,6 @@ const getUserList = async () => {
   if (code === 200) {
     state.tableData = data.list
     state.tableData.forEach((el) => {
-      el.status = el.status ? true : false
       el.createTime = formatDate(el.createTime as string)
       if (el.loginTime) {
         el.loginTime = formatDate(el.loginTime as string)
@@ -220,15 +219,14 @@ const getRoleListAll = async () => {
 }
 
 // 更改用户状态
-const userStatusChange: UserStatusChange = async (user_status, index) => {
-  state.tableData[index].status = user_status ? true : false
+const userStatusChange = async (index:number) => {
   const { id, status } = state.tableData[index]
-  const { code, message } = await api.roleUpdateStatus(id, status ? 1 : 0)
+  const { code, message } = await api.userUpdateStatus(id, status ? 1 : 0)
   if(code == 200){
     ElMessage.success(message)
   }else{
     ElMessage.error(message)
-    state.tableData[index].status = user_status ? false : true
+    state.tableData[index].status = state.tableData[index].status?0:1
   }
 }
 // 重置或返回表格
@@ -246,44 +244,77 @@ const handleSearch = () => {
   isSearch.value = true
   getUserList()
 }
-const submitAddUser = (formEl: FormInstance | undefined) => {
+// 添加或修改用户
+const submitAddOrUpdateUser = (formEl: FormInstance | undefined) => {
   if (!formEl) return
   formEl.validate((valid) => {
     if (valid) {
-      ElMessageBox.confirm('此操作将添加当前用户信息, 是否继续?', '提示',
+      ElMessageBox.confirm(`此操作将${!isEditUser.value?'添加':'修改'}当前用户信息, 是否继续?`, '提示',
         {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
           type: 'warning',
         })
         .then(async () => {
-          dialogFormVisible.value = true
-          const { code, message } = await api.userRegist(state.addUserform)
+          const options:Promise<any> = !isEditUser.value?api.userRegist(state.addUserform):api.userUpdate(state.rowId,state.addUserform)
+          
+          const { code, message } = await options
           ElMessage[code == 200 ? 'success' : 'error'](message)
-          dialogFormVisible.value = false
+          cancelAddUser(formEl)
           getUserList()
-        })
-        .catch(() => {})
+        }).catch(()=>{})
+        
     } else {
       return false
     }
   })
 }
+// 编辑用户按钮
+const editUser = async(row:AddUserform) =>{
+  isEditUser.value = true
+  state.rowId = row.id as number
+  delete row.icon
+  delete row.loginTime
+  row.status = row.status?1:0
+  
+  nextTick(()=>{
+    state.addUserform = {...row}
+  })
+  dialogFormVisible.value = true
+  
+}
 
 const cancelAddUser = (formEl: FormInstance | undefined) => {
   if (!formEl) return
-  formEl.resetFields()
+  console.log(state.tableData);
+  
   dialogFormVisible.value = false
+  formEl.resetFields()
+
+  nextTick(()=>{
+    formEl.clearValidate()
+  })
+  
 }
 
-
-const submitDivideRole = async()=>{
-  state.queryRole.roleIds = (state.queryRole.roleIds as number[]).join()
-  const {code,message} = await api.userRoleUpdate(state.queryRole)
-  dialogDivideVisible.value = false
-  ElMessage[code == 200 ? 'success' : 'error'](message)
-  getUserList()
+// 用户分配角色
+const submitDivideRole = ()=>{
+  ElMessageBox.confirm('此操作将修改当前用户角色, 是否继续?', '提示',
+    {
+      confirmButtonText: '确定',
+      cancelButtonText: '取消',
+      type: 'warning',
+    })
+    .then(async () => {
+      state.queryRole.roleIds = (state.queryRole.roleIds as number[]).join()
+      const {code,message} = await api.userRoleUpdate(state.queryRole)
+      ElMessage[code == 200 ? 'success' : 'error'](message)
+      dialogDivideVisible.value = false
+      state.queryRole.roleIds = []
+      getUserList()
+    }).catch(()=>{})
   
+
 }
 const cancelDivideRole = () =>{
   state.queryRole.roleIds = []
@@ -291,7 +322,9 @@ const cancelDivideRole = () =>{
 }
 
 const handleCloseDialogForm = (done: () => void) => {
-  ruleFormRef?.value!.resetFields()
+
+  cancelAddUser(ruleFormRef.value)
+  state.addUserform = {} as AddUserform
   done()
 }
 const handleCloseDivide = (done: () => void) => {
@@ -306,13 +339,10 @@ const divideRole = async(id:number) => {
   if(code == 200){
     data.forEach((el: { id: number})=>{
       (state.queryRole.roleIds as number[]).push(el.id)
-      
     })
   }
   dialogDivideVisible.value = true
-  
 }
-
 
 
 watch(() => state.queryInfo.pageNum, (newPage) => {

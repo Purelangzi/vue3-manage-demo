@@ -7,7 +7,9 @@ export default {
     userRegist:(data:object)=>request.post('/admin/register',data),
     userList:(params:object)=>request.get('admin/list',{params}),
     userRole:(id:number)=>request.get(`admin/role/${id}`),
-    userRoleUpdate:(data:object) =>request.post('admin/role/update',null,{params:data})
-
+    userUpdate:(id:number,data:object)=>request.post(`admin/update/${id}`,data),
+    userRoleUpdate:(data:object) =>request.post('admin/role/update',null,{params:data}),
+    // userUpdateStatus:(id:number,status:number)=>request.post(`/role/updateStatus/${id}?status=${status}`),
+    userUpdateStatus:(id:number,status:number)=>request.post(`/admin/updateStatus/${id}`,null,{params:{status}}),
 
 } 

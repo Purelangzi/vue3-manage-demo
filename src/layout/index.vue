@@ -7,8 +7,7 @@
     </div>
     <div class="home_menu">
       <el-menu active-text-color="#ffd04b" background-color="#545c64" class="el-menu-vertical-demo"
-        :default-active="route.path" unique-opened text-color="#fff" :router="true" @open="handleOpen"
-        @close="handleClose" :collapse="isCollapse">
+        :default-active="route.path" unique-opened text-color="#fff" :router="true" :collapse="isCollapse">
         <!-- <el-submenu index="1">
           <template #title>
             <span>{{ route.meta.title }}</span>

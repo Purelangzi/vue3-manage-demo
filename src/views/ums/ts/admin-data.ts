@@ -1,16 +1,18 @@
 export interface UserList {
     [key:string]:string|number|boolean,
 }
-export interface UserStatusChange {
-    (x:boolean,y:number):void
-}
+
 export interface AddUserform {
     email:string,
     nickName:string,
     password:string,
     status:number,
     username:string,
-    note:string
+    note:string,
+    createTime?:string,
+    loginTime?:string,
+    icon?:string,
+    id?:number
 }
 export interface DivdeRoleform {
     value:string|number,
@@ -26,3 +28,5 @@ export const dialogFormVisible = ref(false)
 export const dialogDivideVisible = ref(false)
 
 export const loading = ref(false)
+
+export const isEditUser = ref(false)
