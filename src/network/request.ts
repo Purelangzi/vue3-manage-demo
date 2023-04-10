@@ -19,6 +19,7 @@ instance.interceptors.request.use(config=>{
     if (token) {
         config.headers['Authorization'] = "Bearer "+ token // 请求头添加token和Bearer
     }
+
     // 配置post的请求头为表单提交，不配置默认是json格式
     // config.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
     return config
@@ -28,6 +29,7 @@ instance.interceptors.request.use(config=>{
 })
 
 instance.interceptors.response.use(result=>{
+
     return result.data
 },error=>{
     const store = useUserStore()

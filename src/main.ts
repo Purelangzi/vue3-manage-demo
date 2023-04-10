@@ -1,4 +1,3 @@
-import { createApp } from 'vue'
 import pinia from './stores'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import App from './App.vue'

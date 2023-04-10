@@ -10,11 +10,12 @@ export default defineConfig({
   plugins: [vue(),
     AutoImport({
       resolvers:[ElementPlusResolver()],
-      imports:["vue","vue-router"],//自动引入vue的ref、toRefs、onmounted等，无需在页面中再次引入
-      dts:'src/auto-import.d.ts'    // 路径下自动生成文件夹存放全局指令
+      imports:["vue","vue-router","pinia"],//自动引入vue、vuer-router和pinia的方法属性等，无需在页面中再次引入
+      dts:'src/types/auto-import.d.ts'    // 路径下自动生成文件夹存放全局指令
     }),
     Components({
       resolvers: [ElementPlusResolver()],
+      dts:'src/types/components.d.ts' 
     }),
   ],
   resolve: {

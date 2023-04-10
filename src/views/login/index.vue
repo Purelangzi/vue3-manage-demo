@@ -22,7 +22,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import type { FormInstance, FormRules } from 'element-plus'
+import type{ FormInstance, FormRules } from 'element-plus'
 import { useUserStore} from '@/stores/user'
 
 

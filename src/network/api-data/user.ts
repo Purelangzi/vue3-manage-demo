@@ -11,5 +11,5 @@ export default {
     userRoleUpdate:(data:object) =>request.post('admin/role/update',null,{params:data}),
     // userUpdateStatus:(id:number,status:number)=>request.post(`/role/updateStatus/${id}?status=${status}`),
     userUpdateStatus:(id:number,status:number)=>request.post(`/admin/updateStatus/${id}`,null,{params:{status}}),
-
+    userDelete:(id:number)=>request.post(`/admin/delete/${id}`)
 } 

@@ -14,10 +14,18 @@ export interface AddUserform {
     icon?:string,
     id?:number
 }
+export interface QueryRole {
+    adminId:number|undefined,
+    roleIds:number[]|string
+}
+
 export interface DivdeRoleform {
     value:string|number,
     label:string
 }
+
+
+
 
 export const isSearch = ref(false)
 
@@ -29,4 +37,3 @@ export const dialogDivideVisible = ref(false)
 
 export const loading = ref(false)
 
-export const isEditUser = ref(false)
