@@ -13,7 +13,7 @@
       </div>
       <div class="searchInput">
         <span>账号/姓名：</span>
-        <el-input v-model="state.queryInfo.keyword" placeholder="请输入账号或姓名" style="width: 140px;"></el-input>
+        <el-input v-model="state.queryInfo.keyword" placeholder="请输入账号或姓名" style="width: 180px; font-size: 12px;"></el-input>
       </div>
     </el-card>
 

@@ -12,7 +12,7 @@
                 <el-input v-model="state.addUserform.email" placeholder="请输入邮箱" />
             </el-form-item>
             <el-form-item label="密码：" prop="password">
-                <el-input v-model="state.addUserform.password" placeholder="请输入密码" />
+                <el-input v-model="state.addUserform.password" type="password" placeholder="请输入密码" />
             </el-form-item>
             <el-form-item label="备注：" prop="note">
                 <el-input type="textarea" :rows="3" v-model="state.addUserform.note" maxlength="450" placeholder="请输入备注" />

@@ -1,0 +1,498 @@
+{
+    "salePie": [
+        {
+            "first_cid": 4,
+            "sale_today": "3042",
+            "sale_yesterday": "3592",
+            "sale_three_days": "10173",
+            "sale_seven_days": "47227",
+            "sale_fourteen_days": "106517",
+            "sale_thirty_days": "208180",
+            "sale_sixty_days": "527176",
+            "today_money": "496742.20",
+            "yesterday_money": "673293.80",
+            "three_days_money": "2318076.70",
+            "seven_days_money": "10329999.07",
+            "fourteen_days_money": "19731832.03",
+            "thirty_days_money": "36986056.07",
+            "sixty_days_money": "115535775.94",
+            "name": "家用电器"
+        },
+        {
+            "first_cid": 5,
+            "sale_today": "67081",
+            "sale_yesterday": "96110",
+            "sale_three_days": "286779",
+            "sale_seven_days": "706146",
+            "sale_fourteen_days": "1584093",
+            "sale_thirty_days": "3529097",
+            "sale_sixty_days": "12980573",
+            "today_money": "9122423.15",
+            "yesterday_money": "21524918.51",
+            "three_days_money": "58280723.44",
+            "seven_days_money": "137098877.66",
+            "fourteen_days_money": "303865350.30",
+            "thirty_days_money": "666987522.54",
+            "sixty_days_money": "2160656198.50",
+            "name": "服饰内衣"
+        },
+        {
+            "first_cid": 6,
+            "sale_today": "145",
+            "sale_yesterday": "330",
+            "sale_three_days": "1049",
+            "sale_seven_days": "2506",
+            "sale_fourteen_days": "4635",
+            "sale_thirty_days": "7611",
+            "sale_sixty_days": "23637",
+            "today_money": "23759.00",
+            "yesterday_money": "50499.00",
+            "three_days_money": "159668.90",
+            "seven_days_money": "360297.90",
+            "fourteen_days_money": "622856.90",
+            "thirty_days_money": "1059290.65",
+            "sixty_days_money": "3226964.36",
+            "name": "个护化妆"
+        },
+        {
+            "first_cid": 7,
+            "sale_today": "15913",
+            "sale_yesterday": "20891",
+            "sale_three_days": "65341",
+            "sale_seven_days": "207612",
+            "sale_fourteen_days": "467428",
+            "sale_thirty_days": "861390",
+            "sale_sixty_days": "3080555",
+            "today_money": "1142015.24",
+            "yesterday_money": "2038894.01",
+            "three_days_money": "7443195.44",
+            "seven_days_money": "20425868.00",
+            "fourteen_days_money": "39649681.72",
+            "thirty_days_money": "70797973.57",
+            "sixty_days_money": "218711230.73",
+            "name": "运动户外"
+        },
+        {
+            "first_cid": 8,
+            "sale_today": "19319",
+            "sale_yesterday": "81346",
+            "sale_three_days": "147918",
+            "sale_seven_days": "318275",
+            "sale_fourteen_days": "743193",
+            "sale_thirty_days": "1263250",
+            "sale_sixty_days": "3242405",
+            "today_money": "963881.66",
+            "yesterday_money": "4467363.41",
+            "three_days_money": "7414429.49",
+            "seven_days_money": "16231612.11",
+            "fourteen_days_money": "33409654.93",
+            "thirty_days_money": "56248396.68",
+            "sixty_days_money": "128499747.10",
+            "name": "母婴"
+        },
+        {
+            "first_cid": 9,
+            "sale_today": "69485",
+            "sale_yesterday": "145195",
+            "sale_three_days": "340896",
+            "sale_seven_days": "1028804",
+            "sale_fourteen_days": "2232971",
+            "sale_thirty_days": "4179432",
+            "sale_sixty_days": "13224171",
+            "today_money": "3743800.09",
+            "yesterday_money": "8643872.47",
+            "three_days_money": "20002574.24",
+            "seven_days_money": "58374496.47",
+            "fourteen_days_money": "122666161.68",
+            "thirty_days_money": "235097538.25",
+            "sixty_days_money": "767261108.74",
+            "name": "食品饮料"
+        },
+        {
+            "first_cid": 10,
+            "sale_today": "95571",
+            "sale_yesterday": "130021",
+            "sale_three_days": "328803",
+            "sale_seven_days": "759912",
+            "sale_fourteen_days": "1753108",
+            "sale_thirty_days": "3845422",
+            "sale_sixty_days": "11514870",
+            "today_money": "6033742.26",
+            "yesterday_money": "8977223.28",
+            "three_days_money": "21965950.83",
+            "seven_days_money": "51211982.48",
+            "fourteen_days_money": "114481902.94",
+            "thirty_days_money": "255676419.77",
+            "sixty_days_money": "766783507.53",
+            "name": "家居日用"
+        },
+        {
+            "first_cid": 11,
+            "sale_today": "24680",
+            "sale_yesterday": "41600",
+            "sale_three_days": "108328",
+            "sale_seven_days": "299916",
+            "sale_fourteen_days": "541298",
+            "sale_thirty_days": "1172393",
+            "sale_sixty_days": "3433348",
+            "today_money": "3183447.67",
+            "yesterday_money": "16326882.97",
+            "three_days_money": "26396580.80",
+            "seven_days_money": "57587877.55",
+            "fourteen_days_money": "93511768.51",
+            "thirty_days_money": "190054367.33",
+            "sixty_days_money": "547072662.67",
+            "name": "礼品箱包"
+        },
+        {
+            "first_cid": 12,
+            "sale_today": "6545",
+            "sale_yesterday": "6920",
+            "sale_three_days": "25102",
+            "sale_seven_days": "64347",
+            "sale_fourteen_days": "131023",
+            "sale_thirty_days": "251464",
+            "sale_sixty_days": "560136",
+            "today_money": "2922534.40",
+            "yesterday_money": "5346621.40",
+            "three_days_money": "13783916.10",
+            "seven_days_money": "33211294.70",
+            "fourteen_days_money": "59402715.10",
+            "thirty_days_money": "102303445.02",
+            "sixty_days_money": "282859257.12",
+            "name": "钟表类"
+        },
+        {
+            "first_cid": 13,
+            "sale_today": "2590",
+            "sale_yesterday": "5896",
+            "sale_three_days": "13159",
+            "sale_seven_days": "60832",
+            "sale_fourteen_days": "146660",
+            "sale_thirty_days": "255739",
+            "sale_sixty_days": "2393085",
+            "today_money": "9723262.60",
+            "yesterday_money": "462835.48",
+            "three_days_money": "103917.86",
+            "seven_days_money": "106294.64",
+            "fourteen_days_money": "2049134.88",
+            "thirty_days_money": "2469127.54",
+            "sixty_days_money": "6717643.34",
+            "name": "珠宝首饰"
+        },
+        {
+            "first_cid": 14,
+            "sale_today": "23752",
+            "sale_yesterday": "28050",
+            "sale_three_days": "76682",
+            "sale_seven_days": "210932",
+            "sale_fourteen_days": "417234",
+            "sale_thirty_days": "957579",
+            "sale_sixty_days": "3006749",
+            "today_money": "1753529.22",
+            "yesterday_money": "2306472.63",
+            "three_days_money": "6860013.32",
+            "seven_days_money": "19142443.32",
+            "fourteen_days_money": "34898422.87",
+            "thirty_days_money": "78502187.26",
+            "sixty_days_money": "222734347.31",
+            "name": "厨具"
+        },
+        {
+            "first_cid": 15,
+            "sale_today": "4765",
+            "sale_yesterday": "7728",
+            "sale_three_days": "28245",
+            "sale_seven_days": "63774",
+            "sale_fourteen_days": "152307",
+            "sale_thirty_days": "312575",
+            "sale_sixty_days": "913877",
+            "today_money": "248475.12",
+            "yesterday_money": "395803.21",
+            "three_days_money": "1434772.65",
+            "seven_days_money": "3741850.54",
+            "fourteen_days_money": "8724996.74",
+            "thirty_days_money": "16767513.86",
+            "sixty_days_money": "55132872.38",
+            "name": "玩具乐器"
+        },
+        {
+            "first_cid": 16,
+            "sale_today": "3656",
+            "sale_yesterday": "8364",
+            "sale_three_days": "22224",
+            "sale_seven_days": "81710",
+            "sale_fourteen_days": "145456",
+            "sale_thirty_days": "326977",
+            "sale_sixty_days": "1100013",
+            "today_money": "214706.34",
+            "yesterday_money": "388318.62",
+            "three_days_money": "1115441.21",
+            "seven_days_money": "4191277.99",
+            "fourteen_days_money": "8111127.99",
+            "thirty_days_money": "17485226.46",
+            "sixty_days_money": "65250639.33",
+            "name": "汽车用品"
+        },
+        {
+            "first_cid": 20,
+            "sale_today": "761",
+            "sale_yesterday": "2115",
+            "sale_three_days": "3419",
+            "sale_seven_days": "9862",
+            "sale_fourteen_days": "17425",
+            "sale_thirty_days": "64186",
+            "sale_sixty_days": "112498",
+            "today_money": "223014.50",
+            "yesterday_money": "433258.66",
+            "three_days_money": "794640.60",
+            "seven_days_money": "2149622.42",
+            "fourteen_days_money": "3852695.82",
+            "thirty_days_money": "7926995.95",
+            "sixty_days_money": "28808058.97",
+            "name": "家具"
+        },
+        {
+            "first_cid": 21,
+            "sale_today": "8630",
+            "sale_yesterday": "8514",
+            "sale_three_days": "37018",
+            "sale_seven_days": "91994",
+            "sale_fourteen_days": "192425",
+            "sale_thirty_days": "454910",
+            "sale_sixty_days": "1184250",
+            "today_money": "514767.31",
+            "yesterday_money": "528507.27",
+            "three_days_money": "1953766.56",
+            "seven_days_money": "16788139.49",
+            "fourteen_days_money": "23549480.73",
+            "thirty_days_money": "38834413.59",
+            "sixty_days_money": "87709536.97",
+            "name": "家装建材"
+        },
+        {
+            "first_cid": 22,
+            "sale_today": "19519",
+            "sale_yesterday": "21222",
+            "sale_three_days": "75618",
+            "sale_seven_days": "163531",
+            "sale_fourteen_days": "641111",
+            "sale_thirty_days": "1642336",
+            "sale_sixty_days": "4179376",
+            "today_money": "2823126.13",
+            "yesterday_money": "3324227.83",
+            "three_days_money": "10508349.05",
+            "seven_days_money": "22680517.55",
+            "fourteen_days_money": "78634290.87",
+            "thirty_days_money": "192917226.45",
+            "sixty_days_money": "519846565.24",
+            "name": "鞋靴"
+        }
+    ],
+    "saleMap": [
+        {
+            "saleNum": 440000,
+            "areaName": "广东",
+            "hasTrade": 1,
+            "__typename": "TradeFlow"
+        },
+        {
+            "saleNum": 330000,
+            "areaName": "浙江",
+            "hasTrade": 1,
+            "__typename": "TradeFlow"
+        },
+        {
+            "saleNum": 320000,
+            "areaName": "江苏",
+            "hasTrade": 1,
+            "__typename": "TradeFlow"
+        },
+        {
+            "saleNum": 370000,
+            "areaName": "山东",
+            "hasTrade": 1,
+            "__typename": "TradeFlow"
+        },
+        {
+            "saleNum": 410000,
+            "areaName": "河南",
+            "hasTrade": 1,
+            "__typename": "TradeFlow"
+        },
+        {
+            "saleNum": 310000,
+            "areaName": "上海",
+            "hasTrade": 1,
+            "__typename": "TradeFlow"
+        },
+        {
+            "saleNum": 350000,
+            "areaName": "福建",
+            "hasTrade": 1,
+            "__typename": "TradeFlow"
+        },
+        {
+            "saleNum": 510000,
+            "areaName": "四川",
+            "hasTrade": 1,
+            "__typename": "TradeFlow"
+        },
+        {
+            "saleNum": 130000,
+            "areaName": "河北",
+            "hasTrade": 1,
+            "__typename": "TradeFlow"
+        },
+        {
+            "saleNum": 420000,
+            "areaName": "湖北",
+            "hasTrade": 1,
+            "__typename": "TradeFlow"
+        },
+        {
+            "saleNum": 340000,
+            "areaName": "安徽",
+            "hasTrade": 1,
+            "__typename": "TradeFlow"
+        },
+        {
+            "saleNum": 110000,
+            "areaName": "北京",
+            "hasTrade": 1,
+            "__typename": "TradeFlow"
+        },
+        {
+            "saleNum": 430000,
+            "areaName": "湖南",
+            "hasTrade": 1,
+            "__typename": "TradeFlow"
+        },
+        {
+            "saleNum": 210000,
+            "areaName": "辽宁",
+            "hasTrade": 1,
+            "__typename": "TradeFlow"
+        },
+        {
+            "saleNum": 360000,
+            "areaName": "江西",
+            "hasTrade": 1,
+            "__typename": "TradeFlow"
+        },
+        {
+            "saleNum": 610000,
+            "areaName": "陕西",
+            "hasTrade": 1,
+            "__typename": "TradeFlow"
+        },
+        {
+            "saleNum": 450000,
+            "areaName": "广西",
+            "hasTrade": 1,
+            "__typename": "TradeFlow"
+        },
+        {
+            "saleNum": 140000,
+            "areaName": "山西",
+            "hasTrade": 1,
+            "__typename": "TradeFlow"
+        },
+        {
+            "saleNum": 530000,
+            "areaName": "云南",
+            "hasTrade": 1,
+            "__typename": "TradeFlow"
+        },
+        {
+            "saleNum": 500000,
+            "areaName": "重庆",
+            "hasTrade": 1,
+            "__typename": "TradeFlow"
+        },
+        {
+            "saleNum": 230000,
+            "areaName": "黑龙江",
+            "hasTrade": 1,
+            "__typename": "TradeFlow"
+        },
+        {
+            "saleNum": 520000,
+            "areaName": "贵州",
+            "hasTrade": 1,
+            "__typename": "TradeFlow"
+        },
+        {
+            "saleNum": 220000,
+            "areaName": "吉林",
+            "hasTrade": 1,
+            "__typename": "TradeFlow"
+        },
+        {
+            "saleNum": 120000,
+            "areaName": "天津",
+            "hasTrade": 1,
+            "__typename": "TradeFlow"
+        },
+        {
+            "saleNum": 150000,
+            "areaName": "内蒙古",
+            "hasTrade": 1,
+            "__typename": "TradeFlow"
+        },
+        {
+            "saleNum": 620000,
+            "areaName": "甘肃",
+            "hasTrade": 1,
+            "__typename": "TradeFlow"
+        },
+        {
+            "saleNum": 460000,
+            "areaName": "海南",
+            "hasTrade": 1,
+            "__typename": "TradeFlow"
+        },
+        {
+            "saleNum": 650000,
+            "areaName": "新疆",
+            "hasTrade": 1,
+            "__typename": "TradeFlow"
+        },
+        {
+            "saleNum": 810000,
+            "areaName": "香港",
+            "hasTrade": 1,
+            "__typename": "TradeFlow"
+        },
+        {
+            "saleNum": 640000,
+            "areaName": "宁夏",
+            "hasTrade": 1,
+            "__typename": "TradeFlow"
+        },
+        {
+            "saleNum": 630000,
+            "areaName": "青海",
+            "hasTrade": 1,
+            "__typename": "TradeFlow"
+        },
+        {
+            "saleNum": 710000,
+            "areaName": "台湾",
+            "hasTrade": 1,
+            "__typename": "TradeFlow"
+        },
+        {
+            "saleNum": 540000,
+            "areaName": "西藏",
+            "hasTrade": 1,
+            "__typename": "TradeFlow"
+        },
+        {
+            "saleNum": 820000,
+            "areaName": "澳门",
+            "hasTrade": 1,
+            "__typename": "TradeFlow"
+        }
+    ]
+}

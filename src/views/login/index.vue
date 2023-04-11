@@ -85,7 +85,7 @@ const login = (formEl: FormInstance | undefined) => {
         state.menus = res.data.menus
       })
       router.push('/')
-      
+      ElNotification.success({message:'登录成功'})
     } else {
       console.log('error submit!')
       return false

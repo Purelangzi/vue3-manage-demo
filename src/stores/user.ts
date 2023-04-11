@@ -43,11 +43,11 @@ export const useUserStore = defineStore(StoreNames.UserInfo,{
     },
     actions:{
         logOut(){
-            this.resetToken()
+            this.resetTokenMenus()
         },
-        resetToken(){
-            this.token = ''
+        resetTokenMenus(){
             Cookies.remove('token')
+            localStorage.removeItem('menus')
         }
     },
     persist:{
