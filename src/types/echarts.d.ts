@@ -9,7 +9,7 @@ import {
   TitleComponentOption,
   TooltipComponentOption,
   GridComponentOption,
-  DatasetComponentOption,
+  DatasetComponentOption
 } from 'echarts/components';
 
 

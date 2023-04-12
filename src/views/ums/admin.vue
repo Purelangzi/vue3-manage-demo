@@ -33,10 +33,15 @@
       <el-table-column v-for="item in state.columns" :prop="item.prop" :label="item.label" :width="item.width"
         :key="item.prop" align="center">
         <template #default="{ row, $index }" v-if="item.isSlot">
-          <el-switch v-model="row.status" inline-prompt active-text="启用" inactive-text="未启用" :active-value="1"
+          
+          <el-switch v-if="item.prop==='status'" v-model="row.status" inline-prompt active-text="启用" inactive-text="未启用" :active-value="1"
             :inactive-value="0" @change="userStatusChange($index)">
           </el-switch>
-
+          <div v-if="row.createTime">
+            <span v-if="item.prop==='createTime'">{{formatDate(row.createTime)}}</span>
+            <span v-if="item.prop==='loginTime'&&row.loginTime">{{formatDate(row.loginTime)}}</span>
+          </div>
+          
         </template>
       </el-table-column>
       <el-table-column label="操作" align="center">
@@ -96,8 +101,8 @@ const state = reactive({
     { isSlot: false, label: '账号', prop: 'username', width: 'auto' },
     { isSlot: false, label: '姓名', prop: 'nickName', width: 'auto' },
     { isSlot: false, label: '邮箱', prop: 'email', width: 'auto' },
-    { isSlot: false, label: '添加时间', prop: 'createTime', width: 'atuo' },
-    { isSlot: false, label: '最后登录', prop: 'loginTime', width: 'auto' },
+    { isSlot: true, label: '添加时间', prop: 'createTime', width: 'atuo' },
+    { isSlot: true, label: '最后登录', prop: 'loginTime', width: 'auto' },
     { isSlot: true, label: '状态', prop: 'status', width: 'auto' },
   ],
   queryInfo: {
@@ -131,12 +136,12 @@ const getUserList = async () => {
   const { code, data, message } = await api.userList(keyword ? state.queryInfo : { pageNum, pageSize })
   if (code === 200) {
     state.tableData = data.list
-    state.tableData.forEach((el) => {
+    /* state.tableData.forEach((el) => {
       el.createTime = formatDate(el.createTime as string)
       if (el.loginTime) {
         el.loginTime = formatDate(el.loginTime as string)
       }
-    })
+    }) */
     state.totalNum = data.total
   } else {
     ElMessage.warning(message)

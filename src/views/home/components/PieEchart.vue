@@ -40,13 +40,7 @@ const pieEchartInit = () =>{
         type: 'pie',
         radius: '50%',
         center: ['30%', '35%'],
-        data: props.salePicData,/* [
-          { value: 1048, name: 'Search Engine' },
-          { value: 735, name: 'Direct' },
-          { value: 580, name: 'Email' },
-          { value: 484, name: 'Union Ads' },
-          { value: 300, name: 'Video Ads' }
-        ], */
+        data: props.salePicData,
         emphasis: {
           itemStyle: {
             shadowBlur: 10,

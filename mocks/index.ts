@@ -15,12 +15,6 @@ const mock: Array<MockMethod> = [
                 data: homesetJSON
             }
         }
-    },
-    {
-        url:'/mock-api/chinaMap',
-        method: 'get',
-        response: () => ({data: chinaMapJSON}
-        )
     }
 ]
  

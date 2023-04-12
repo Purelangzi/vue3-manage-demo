@@ -8,6 +8,7 @@ import {
   LegendComponent,
   TooltipComponent,
   GridComponent,
+  VisualMapComponent,
   // 数据集组件
   DatasetComponent,
   // 内置数据转换器组件 (filter, sort)
@@ -24,6 +25,7 @@ echarts.use([
   LegendComponent,
   TooltipComponent,
   GridComponent,
+  VisualMapComponent,
   DatasetComponent,
   TransformComponent,
   PieChart,

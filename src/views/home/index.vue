@@ -1,85 +1,76 @@
 <template>
   <div class="home-header">
-    <el-radio-group v-model="isSale" size="large">
-      <el-radio-button label="销量" />
-      <el-radio-button label="销售额" />
+    <el-radio-group v-model="selectLabel" size="large" @change="selectChange">
+      <el-radio-button label="sale_">销量</el-radio-button>
+      <el-radio-button label="_money">销售额</el-radio-button>
     </el-radio-group>
-    <el-select v-model="saleDay" class="m-2" placeholder="Select" size="large">
-      <el-option
-        v-for="item in isSale=='销量'?state.saleOptions:state.saleMoneyOptions"
-        :key="item.value"
-        :label="item.label"
-        :value="item.value"
-      />
+    <el-select v-model="selectDay" class="m-2" placeholder="Select" size="large" @change="selectChange">
+      <el-option v-for="item in otptions" :key="item.value" :label="item.label" :value="item.value" />
     </el-select>
   </div>
   <div class="home-echarts">
     <PieEchart :sale-pic-data="resSalePicData" />
+    <MapEchart :sale-map-data="state.saleMapData" />
+
+
   </div>
 </template>
 <script setup lang="ts">
-import {mockHomeSet,mockChinaMap} from '../../../mocks/api'
+import { mockHomeSet } from '../../../mocks/api'
 import PieEchart from './components/PieEchart.vue'
-interface SalePie{
-  [key:string]:string|number,
-  value:number,
-  name:string
+import MapEchart from './components/MapEchart.vue'
+interface SalePie {
+  [key: string]: string | number,
+  value: number,
+  name: string
 }
-const isSale = ref('销量')
-const saleDay = ref('sale_today')
+
 const state = reactive({
-  salePieData:[] as SalePie[],
-  saleOptions:[
-    { value:'sale_yesterday',label:'昨天'},
-    { value:'sale_today',label:'今天'},
-    { value:'sale_three_days',label:'前三天'},
-    { value:'sale_seven_days',label:'前7天'},
-    { value:'sale_fourteen_days',label:'前14天'},
-  ],
-  saleMoneyOptions:[
-    { value:'yesterday_money',label:'昨天'},
-    { value:'today_money',label:'今天'},
-    { value:'three_days_money',label:'前三天'},
-    { value:'thirty_days_money',label:'前7天'},
-    { value:'fourteen_days_money',label:'前14天'},
-  ],
+  selectLabel: 'sale_',
+  selectDay: 'today',
+  resSalePicData:[] as any[],
+  salePieData: [] as SalePie[],
+  saleMapData: [] as SalePie[],
+  otptions: [
+    { value: 'yesterday', label: '昨天' },
+    { value: 'today', label: '今天' },
+    { value: 'three_days', label: '前三天' },
+    { value: 'seven_days', label: '前7天' },
+    { value: 'fourteen_days', label: '前14天' },
+  ]
 })
-
-mockHomeSet().then(res=>{
+const {selectLabel,selectDay,otptions,resSalePicData} = toRefs(state)
+mockHomeSet().then(res => {
   state.salePieData = res.data.salePie
+  state.saleMapData = res.data.saleMap
 })
 
-const resSalePicData = computed(()=>{
-  const newArr=[] as SalePie[]
-  state.salePieData.forEach(obj=>{
-    for (const key in obj) {
-      if(key === saleDay.value){
-        newArr.push({
-          value:parseInt(obj[key] as string),
-          name:obj['name']
-        })
-      }
-    }
-  })
-  return newArr
-})
-watch(isSale,(newVal)=>{
-  if(newVal === '销量'){
-    saleDay.value = 'sale_today'
-  }else{
-    saleDay.value = 'today_money'
-  }
-})
-const mock = async()=>{
-  const chinaMapData = await mockChinaMap()
+const selectChange = () =>{
+  handleData()
 }
+const handleData = () =>{
+  let key =''
+  if(selectLabel.value === '_money'){
+    key =selectDay.value + selectLabel.value
+  }else{
+    key =selectLabel.value + selectDay.value
+  }
+  resSalePicData.value = state.salePieData.map(el=>({value:el[key],name:el.name}))
+}
+
+watch(()=>state.salePieData,()=>{
+  handleData()
+})
+
+
 </script>
 <style lang='less' scoped>
-.home-header{
+.home-header {
   display: flex;
   justify-content: space-between;
 }
-.home-echarts{
+
+.home-echarts {
   margin-top: 20px;
 }
 </style>
